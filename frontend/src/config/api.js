@@ -1,7 +1,7 @@
 // API Configuration
 const API_CONFIG = {
   // For production deployment on Render
-  BASE_URL: import.meta.env.VITE_API_URL || 'https://full-stack-restaurant-application.onrender.com',
+  BASE_URL: import.meta.env.VITE_API_URL || 'https://full-stack-restaurant-application-backend.onrender.com',
   
   // API endpoints
   ENDPOINTS: {
