@@ -27,5 +27,17 @@ const send_reservation = async (req, res, next) => {
 };
 
 
-export default send_reservation;
+const get_reservations = async (req, res, next) => {
+  try {
+    const reservations = await Reservation.find().sort({ createdAt: -1 });
+    res.status(200).json({
+      success: true,
+      reservations,
+    });
+  } catch (error) {
+    return next(error);
+  }
+};
+
+export { send_reservation, get_reservations };
 

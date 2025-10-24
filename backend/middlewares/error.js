@@ -16,8 +16,8 @@ export const errorMiddleware = (err, req, res, next) => {
 
 
   if (err.name === 'ValidationError') {
-    const validationErrors = Object.values(error.errors).map(err => err.message);
-    return next(new ErrorHandler(validationErrors.join(', '), 400));
+    const validationErrors = Object.values(err.errors).map(error => error.message);
+    err = new ErrorHandler(validationErrors.join(', '), 400);
   }
 
 

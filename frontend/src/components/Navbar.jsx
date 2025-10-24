@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { data } from "../restApi.json";
 import { Link } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 const Navbar = () => {
   const [show, setShow] = useState(false);
   return (
     <>
       <nav>
-        <div className="logo">ZEESH</div>
         <div className={show ? "navLinks showmenu" : "navLinks"}>
           <div className="links">
             {data[0].navbarLinks.map((element) => (
@@ -21,6 +21,9 @@ const Navbar = () => {
                 {element.title}
               </Link>
             ))}
+            <RouterLink to="/reservations" className="reservations-link">
+              MY RESERVATIONS
+            </RouterLink>
           </div>
           <button className="menuBtn">OUR MENU</button>
         </div>
