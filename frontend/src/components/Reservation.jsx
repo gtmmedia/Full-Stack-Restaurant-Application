@@ -4,6 +4,7 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import API_CONFIG from "../config/api.js";
 
 const Reservation = () => {
   const [firstName, setFirstName] = useState("");
@@ -18,7 +19,7 @@ const Reservation = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://backend-mv6um8tym-gtmmedias-projects.vercel.app/api/v1/reservation/send",
+        `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.RESERVATION_SEND}`,
         { firstName, lastName, email, phone, date, time },
         {
           headers: {

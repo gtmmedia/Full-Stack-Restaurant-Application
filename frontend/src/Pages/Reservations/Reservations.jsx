@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { HiOutlineCalendar, HiOutlineClock, HiOutlineMail, HiOutlinePhone, HiOutlineUser } from 'react-icons/hi';
 import './Reservations.css';
+import API_CONFIG from '../../config/api.js';
 
 const Reservations = () => {
   const [reservations, setReservations] = useState([]);
@@ -15,7 +16,7 @@ const Reservations = () => {
   const fetchReservations = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get('https://backend-mv6um8tym-gtmmedias-projects.vercel.app/api/v1/reservation/all');
+      const { data } = await axios.get(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.RESERVATION_ALL}`);
       setReservations(data.reservations);
       setError('');
     } catch (err) {

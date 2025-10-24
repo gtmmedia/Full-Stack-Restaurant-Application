@@ -1,5 +1,8 @@
 import app from "./app.js";
 
-app.listen(process.env.PORT, ()=>{
-    console.log(`SERVER HAS STARTED AT PORT ${process.env.PORT}`);
-})
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`🚀 Server is running on port ${PORT}`);
+  console.log(`📍 Environment: ${process.env.NODE_ENV || 'development'}`);
+});
