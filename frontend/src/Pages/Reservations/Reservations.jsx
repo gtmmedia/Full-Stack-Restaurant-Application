@@ -15,7 +15,7 @@ const Reservations = () => {
   const fetchReservations = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.get('http://localhost:5000/api/v1/reservation/all');
+      const { data } = await axios.get('https://backend-mv6um8tym-gtmmedias-projects.vercel.app/api/v1/reservation/all');
       setReservations(data.reservations);
       setError('');
     } catch (err) {
