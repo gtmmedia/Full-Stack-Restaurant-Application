@@ -12,6 +12,7 @@ app.use(
   cors({
     origin: [
       process.env.FRONTEND_URL,
+      "https://full-stack-restaurant-application.onrender.com", // Frontend production URL
       "http://localhost:5173", // Vite dev server
       "http://localhost:3000", // Alternative dev server
     ],

@@ -16,12 +16,15 @@ const Reservations = () => {
   const fetchReservations = async () => {
     try {
       setLoading(true);
+      console.log('Fetching reservations from:', `${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.RESERVATION_ALL}`);
       const { data } = await axios.get(`${API_CONFIG.BASE_URL}${API_CONFIG.ENDPOINTS.RESERVATION_ALL}`);
+      console.log('Reservations data:', data);
       setReservations(data.reservations);
       setError('');
     } catch (err) {
-      setError('Failed to fetch reservations');
       console.error('Error fetching reservations:', err);
+      const errorMessage = err.response?.data?.message || err.message || 'Failed to fetch reservations';
+      setError(errorMessage);
     } finally {
       setLoading(false);
     }

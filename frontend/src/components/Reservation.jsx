@@ -37,7 +37,9 @@ const Reservation = () => {
       setDate("");
       navigate("/success");
     } catch (error) {
-      toast.error(error.response.data.message);
+      console.error('Reservation error:', error);
+      const errorMessage = error.response?.data?.message || error.message || 'Failed to make reservation';
+      toast.error(errorMessage);
     }
   };
 
